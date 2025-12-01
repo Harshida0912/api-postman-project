@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "88a9ef73-7d2f-4f08-b673-cf41d45dd757",
+		"name": "Amazon",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50455651",
+		"_collection_link": "https://harshida-sri-0912-1636295.postman.co/workspace/Harshida-Sri's-Workspace~e65cafbe-372f-4cd0-844a-8b957a6fc704/collection/50455651-88a9ef73-7d2f-4f08-b673-cf41d45dd757?action=share&source=collection_link&creator=50455651"
+	},
+	"item": [
+		{
+			"name": "GetAllProduct",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://692d2b11e5f67cd80a4a6420.mockapi.io/products",
+					"protocol": "https",
+					"host": [
+						"692d2b11e5f67cd80a4a6420",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"products"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "CreateProduct",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"productName\": \"{{$randomProduct}}\",\n        \"price\": \"{{$randomPrice}}\",\n        \"stock\": false\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://692d2b11e5f67cd80a4a6420.mockapi.io/products",
+					"protocol": "https",
+					"host": [
+						"692d2b11e5f67cd80a4a6420",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"products"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "GetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://692d2b11e5f67cd80a4a6420.mockapi.io/products/4",
+					"protocol": "https",
+					"host": [
+						"692d2b11e5f67cd80a4a6420",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"products",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateProduct",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://692d2b11e5f67cd80a4a6420.mockapi.io/products/9",
+					"protocol": "https",
+					"host": [
+						"692d2b11e5f67cd80a4a6420",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"products",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProduct",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://692d2b11e5f67cd80a4a6420.mockapi.io/products/8",
+					"protocol": "https",
+					"host": [
+						"692d2b11e5f67cd80a4a6420",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"products",
+						"8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
